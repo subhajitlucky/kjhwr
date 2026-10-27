@@ -178,7 +178,9 @@ and the API docs at `/docs` if available.
 > with the selected vintage, the raw series and the corrected series. The charts
 > are responsive SVG with custom tooltips; no heavy chart dependency. The design
 > is intentionally a control-room aesthetic: dark, high-contrast, tabular numbers
-> and one accent colour for the number that matters."
+> and one accent colour for the number that matters. There is a light theme too —
+> the toggle is in the sidebar and the choice is persisted, so the charts use CSS
+> custom properties rather than hard-coded colours."
 
 ## 8:30–9:15 — Deployment and operations
 
