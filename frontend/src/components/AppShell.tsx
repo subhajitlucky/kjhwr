@@ -6,7 +6,7 @@ import {
   Target,
   type LucideIcon,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAppState } from "../context/AppState";
 
 function TurbineMark({ className = "h-5 w-5" }: { className?: string }) {
@@ -47,10 +47,13 @@ function NavItem({
   end?: boolean;
   compact?: boolean;
 }) {
+  const { search } = useLocation();
+  const href = `${to}${search}`;
+
   if (compact) {
     return (
       <NavLink
-        to={to}
+        to={href}
         end={end}
         className={({ isActive }) =>
           `shrink-0 rounded-full px-3 py-1.5 text-[11px] transition-colors ${
@@ -67,7 +70,7 @@ function NavItem({
 
   return (
     <NavLink
-      to={to}
+      to={href}
       end={end}
       className={({ isActive }) =>
         `group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-[12.5px] transition-colors ${
@@ -95,11 +98,12 @@ function NavItem({
 
 function Sidebar() {
   const { meta } = useAppState();
+  const { search } = useLocation();
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-[248px] flex-col border-r border-edge bg-[#080d0b]/95 lg:flex">
       <div className="px-5 pb-5 pt-6">
-        <NavLink to="/" className="group flex items-center gap-3">
+        <NavLink to={`/${search}`} className="group flex items-center gap-3">
           <span className="grid h-10 w-10 place-items-center rounded-xl border border-acid/20 bg-acid/[0.06] text-acid transition-transform duration-700 group-hover:rotate-[120deg]">
             <TurbineMark />
           </span>
@@ -172,11 +176,13 @@ function Sidebar() {
 }
 
 function MobileHeader() {
+  const { search } = useLocation();
+
   return (
     <div className="lg:hidden">
       <div className="glass sticky top-0 z-40 border-b border-edge">
         <div className="flex items-center justify-between px-4 py-3">
-          <NavLink to="/" className="flex items-center gap-2.5">
+          <NavLink to={`/${search}`} className="flex items-center gap-2.5">
             <span className="grid h-8 w-8 place-items-center rounded-lg border border-acid/20 bg-acid/[0.06] text-acid">
               <TurbineMark className="h-4 w-4" />
             </span>

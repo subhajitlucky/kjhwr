@@ -26,25 +26,25 @@ Use [`docs/video-script.md`](video-script.md). Target 9:30–9:50.
 - [ ] Description includes the live URL and the public repo URL.
 - [ ] Open the YouTube link in an incognito window and confirm it plays.
 
-## 2. Publish the repository
+## 2. Repository (published)
 
-The repository name must be anonymous / random, e.g. `kjhwr`, `wndcst-7f3a`, not
-the candidate's name or the company name.
+**Public repo:** https://github.com/subhajitlucky/kjhwr
+
+Published from this directory. To update after changes:
 
 ```bash
 cd /home/subhajit/project/windcast
 git add -A
-git commit -m "feat: windcast day-ahead wind forecast pilot"
-gh repo create <anonymous-name> --public --source=. --remote=origin --push
+git commit -m "chore: update submission"
+git push origin main
 ```
 
 Then:
 
-- [ ] Open the GitHub repo in incognito and confirm it is public.
-- [ ] Confirm `data/windcast.db` is present (2.5 MB) and `README.md` renders.
-- [ ] Confirm `docs/screenshots/` images render.
-- [ ] Copy the repo URL into the README if it is not already there.
-- [ ] Add the repo URL to the submission form.
+- [x] Open the GitHub repo in incognito and confirm it is public.
+- [x] Confirm `data/windcast.db` is present (2.5 MB) and `README.md` renders.
+- [x] Confirm `docs/screenshots/` images render.
+- [x] Add the repo URL to the submission form.
 
 ## 3. Incognito checks
 
