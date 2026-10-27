@@ -1,0 +1,11 @@
+.git
+.vercel
+backend/.venv
+backend/**/__pycache__
+backend/.pytest_cache
+frontend/node_modules
+data/raw
+docs/screenshots
+*.log
+*.db-wal
+*.db-shm

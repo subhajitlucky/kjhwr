@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "fastapi",
+  "buildCommand": "cd frontend && npm install --no-audit --no-fund && npm run build && cp ../data/windcast.db dist/assets/windcast-snapshot.db",
+  "env": {
+    "WINDCAST_READ_ONLY": "1",
+    "WINDCAST_DB_PATH": "/var/task/frontend/dist/assets/windcast-snapshot.db"
+  },
+  "regions": ["lhr1"]
+}

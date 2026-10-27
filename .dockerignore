@@ -1,0 +1,14 @@
+.git
+.vercel
+backend/.venv
+backend/**/__pycache__
+backend/.pytest_cache
+frontend/node_modules
+frontend/dist
+frontend/.vite
+data/raw
+docs/screenshots
+*.log
+*.db-wal
+*.db-shm
+README.md
