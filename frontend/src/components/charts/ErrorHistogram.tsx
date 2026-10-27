@@ -54,14 +54,14 @@ export function ErrorHistogram({
               x2={PAD.left + innerW}
               y1={y(tick)}
               y2={y(tick)}
-              stroke="rgba(255,255,255,0.045)"
+              stroke="var(--chart-grid)"
               strokeDasharray="2 5"
             />
             <text
               x={PAD.left - 6}
               y={y(tick) + 3.5}
               textAnchor="end"
-              className="fill-[#6f7d75] font-mono text-[9px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9px]"
             >
               {Math.round(tick)}
             </text>
@@ -74,14 +74,14 @@ export function ErrorHistogram({
             x2={zero}
             y1={PAD.top}
             y2={PAD.top + innerH}
-            stroke="rgba(238,242,233,0.3)"
+            stroke="var(--chart-reference)"
             strokeDasharray="3 3"
           />
         )}
 
         {valid.map((bin, index) => {
           const center = ((bin.from_mw ?? 0) + (bin.to_mw ?? 0)) / 2;
-          const color = center < 0 ? "#5fe3c0" : "#ffb45c";
+          const color = center < 0 ? "var(--chart-actual)" : "var(--chart-raw)";
           const x = PAD.left + index * barWidth;
           const barHeight = Math.max(0, PAD.top + innerH - y(bin.count));
           return (
@@ -110,7 +110,7 @@ export function ErrorHistogram({
             x={PAD.left + ((tick.value - from) / (to - from || 1)) * innerW}
             y={height - 8}
             textAnchor="middle"
-            className="fill-[#6f7d75] font-mono text-[9px]"
+            className="fill-[var(--chart-axis)] font-mono text-[9px]"
           >
             {tick.label}
           </text>
@@ -119,7 +119,7 @@ export function ErrorHistogram({
           x={PAD.left + innerW}
           y={PAD.top - 4}
           textAnchor="end"
-          className="fill-[#5f6d65] font-mono text-[8px] uppercase tracking-[0.14em]"
+          className="fill-[var(--chart-axis-dim)] font-mono text-[8px] uppercase tracking-[0.14em]"
         >
           Count · GW bins
         </text>

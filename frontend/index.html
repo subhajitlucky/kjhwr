@@ -8,6 +8,15 @@
       name="description"
       content="Windcast — day-ahead wind forecast intelligence for a GB energy utility. Vintage-aware, error-quantified, no hindsight."
     />
+    <script>
+      try {
+        if (localStorage.getItem("windcast-theme") === "light") {
+          document.documentElement.classList.add("light");
+        }
+      } catch (error) {
+        /* storage can be blocked; default to the dark theme */
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Windcast · Day-ahead wind intelligence</title>
   </head>

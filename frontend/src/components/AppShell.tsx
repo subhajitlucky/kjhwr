@@ -3,11 +3,14 @@ import {
   Clock3,
   GitBranch,
   Gauge,
+  Moon,
+  Sun,
   Target,
   type LucideIcon,
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAppState } from "../context/AppState";
+import { useTheme } from "../context/Theme";
 
 function TurbineMark({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -24,6 +27,26 @@ function TurbineMark({ className = "h-5 w-5" }: { className?: string }) {
       </g>
       <circle cx="16" cy="16" r="2.3" fill="currentColor" />
     </svg>
+  );
+}
+
+function ThemeToggle({ className = "" }: { className?: string }) {
+  const { theme, toggle } = useTheme();
+  const next = theme === "dark" ? "light" : "dark";
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={`Switch to ${next} mode`}
+      title={`Switch to ${next} mode`}
+      className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-edge bg-panel2/60 text-muted transition-colors hover:border-edge2 hover:text-paper ${className}`}
+    >
+      {theme === "dark" ? (
+        <Sun className="h-3.5 w-3.5" strokeWidth={1.7} />
+      ) : (
+        <Moon className="h-3.5 w-3.5" strokeWidth={1.7} />
+      )}
+    </button>
   );
 }
 
@@ -59,7 +82,7 @@ function NavItem({
           `shrink-0 rounded-full px-3 py-1.5 text-[11px] transition-colors ${
             isActive
               ? "bg-acid text-ink"
-              : "text-muted hover:bg-white/[0.04] hover:text-paper"
+              : "text-muted hover:bg-paper/[0.05] hover:text-paper"
           }`
         }
       >
@@ -76,7 +99,7 @@ function NavItem({
         `group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-[12.5px] transition-colors ${
           isActive
             ? "bg-acid/[0.07] text-paper"
-            : "text-muted hover:bg-white/[0.025] hover:text-paper"
+            : "text-muted hover:bg-paper/[0.035] hover:text-paper"
         }`
       }
     >
@@ -101,21 +124,27 @@ function Sidebar() {
   const { search } = useLocation();
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-40 hidden w-[248px] flex-col border-r border-edge bg-[#080d0b]/95 lg:flex">
+    <aside className="fixed inset-y-0 left-0 z-40 hidden w-[248px] flex-col border-r border-edge bg-[var(--sidebar-bg)] lg:flex">
       <div className="px-5 pb-5 pt-6">
-        <NavLink to={`/${search}`} className="group flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-xl border border-acid/20 bg-acid/[0.06] text-acid transition-transform duration-700 group-hover:rotate-[120deg]">
-            <TurbineMark />
-          </span>
-          <span className="min-w-0">
-            <span className="block font-mono text-[12.5px] font-semibold tracking-[0.22em] text-paper">
-              WINDCAST
+        <div className="flex items-start justify-between gap-2">
+          <NavLink
+            to={`/${search}`}
+            className="group flex min-w-0 items-center gap-2.5"
+          >
+            <span className="grid h-10 w-10 place-items-center rounded-xl border border-acid/20 bg-acid/[0.06] text-acid transition-transform duration-700 group-hover:rotate-[120deg]">
+              <TurbineMark />
             </span>
-            <span className="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.17em] text-faint">
-              GB wind intelligence
+            <span className="min-w-0">
+              <span className="block font-mono text-[12.5px] font-semibold tracking-[0.22em] text-paper">
+                WINDCAST
+              </span>
+              <span className="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.17em] text-faint">
+                GB wind intelligence
+              </span>
             </span>
-          </span>
-        </NavLink>
+          </NavLink>
+          <ThemeToggle className="mt-1" />
+        </div>
       </div>
 
       <nav className="mt-1 px-3" aria-label="Primary">
@@ -168,7 +197,7 @@ function Sidebar() {
 
       <div className="px-3 pb-4">
         <div className="px-2 font-mono text-[8px] uppercase tracking-[0.14em] text-faint">
-          Built for the REint challenge
+          Windcast v1.0 · January 2026
         </div>
       </div>
     </aside>
@@ -190,9 +219,12 @@ function MobileHeader() {
               WINDCAST
             </span>
           </NavLink>
-          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-faint">
-            Jan 2026
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-faint">
+              Jan 2026
+            </span>
+            <ThemeToggle />
+          </div>
         </div>
         <nav
           className="scroll-thin flex gap-1 overflow-x-auto px-3 pb-2.5"

@@ -173,10 +173,10 @@ export function RevisionsPage() {
             subtitle="Each line is one WINDFOR run for this delivery day. The acid line is the vintage the app scores; coral dashed lines arrived after gate closure."
             actions={
               <div className="flex flex-wrap items-center gap-3">
-                <LegendItem color="#c8f45a" label="Used" />
-                <LegendItem color="#8ab8ff" label="Earlier" />
-                <LegendItem color="#ff7a66" label="Late" dashed />
-                <LegendItem color="#5fe3c0" label="Actual" />
+                <LegendItem color="var(--chart-forecast)" label="Used" />
+                <LegendItem color="var(--chart-muted)" label="Earlier" />
+                <LegendItem color="var(--chart-late)" label="Late" dashed />
+                <LegendItem color="var(--chart-actual)" label="Actual" />
               </div>
             }
             bodyClassName="px-2 pb-2 pt-1"
@@ -258,7 +258,7 @@ export function RevisionsPage() {
                             <tr
                               key={vintage.publish_time}
                               className={`border-b border-edge/50 transition-colors last:border-0 ${
-                                isSelected ? "bg-acid/[0.045]" : "hover:bg-white/[0.02]"
+                                isSelected ? "bg-acid/[0.045]" : "hover:bg-paper/[0.03]"
                               }`}
                             >
                               <td className="py-2.5 pl-5 pr-2">

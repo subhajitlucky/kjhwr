@@ -57,7 +57,7 @@ export function ScatterPlot({
               x2={offsetX + size}
               y1={y(tick)}
               y2={y(tick)}
-              stroke="rgba(255,255,255,0.045)"
+              stroke="var(--chart-grid)"
               strokeDasharray="2 5"
             />
             <line
@@ -65,13 +65,13 @@ export function ScatterPlot({
               x2={x(tick)}
               y1={top}
               y2={top + size}
-              stroke="rgba(255,255,255,0.03)"
+              stroke="var(--chart-grid)"
             />
             <text
               x={offsetX - 7}
               y={y(tick) + 3.5}
               textAnchor="end"
-              className="fill-[#6f7d75] font-mono text-[9px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9px]"
             >
               {(tick / 1000).toFixed(1)}
             </text>
@@ -79,7 +79,7 @@ export function ScatterPlot({
               x={x(tick)}
               y={top + size + 15}
               textAnchor="middle"
-              className="fill-[#6f7d75] font-mono text-[9px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9px]"
             >
               {(tick / 1000).toFixed(1)}
             </text>
@@ -91,7 +91,7 @@ export function ScatterPlot({
           y1={y(0)}
           x2={x(maxValue)}
           y2={y(maxValue)}
-          stroke="rgba(238,242,233,0.35)"
+          stroke="var(--chart-reference)"
           strokeDasharray="4 4"
         />
 
@@ -103,9 +103,9 @@ export function ScatterPlot({
               cx={x(point.actual_mw as number)}
               cy={y(point.forecast_mw as number)}
               r={3}
-              fill={high ? "#ffb45c" : "#5fe3c0"}
+              fill={high ? "var(--chart-raw)" : "var(--chart-actual)"}
               opacity={0.48}
-              stroke="rgba(7,11,10,0.7)"
+              stroke="var(--chart-dot-stroke)"
               strokeWidth={0.6}
             >
               <title>
@@ -119,7 +119,7 @@ export function ScatterPlot({
           x={offsetX + size}
           y={top + size + 30}
           textAnchor="end"
-          className="fill-[#8d9b92] font-mono text-[8.5px] uppercase tracking-[0.14em]"
+          className="fill-[var(--chart-axis-label)] font-mono text-[8.5px] uppercase tracking-[0.14em]"
         >
           Actual GW
         </text>
@@ -127,7 +127,7 @@ export function ScatterPlot({
           x={offsetX - 7}
           y={top - 6}
           textAnchor="end"
-          className="fill-[#8d9b92] font-mono text-[8.5px] uppercase tracking-[0.14em]"
+          className="fill-[var(--chart-axis-label)] font-mono text-[8.5px] uppercase tracking-[0.14em]"
         >
           Forecast GW
         </text>

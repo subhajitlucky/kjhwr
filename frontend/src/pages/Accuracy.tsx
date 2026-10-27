@@ -221,8 +221,8 @@ function AccuracyBody({ data, cutoff }: { data: AccuracyBundle; cutoff: string }
         subtitle="Mean absolute error per delivery day. Raw WINDFOR in amber; trailing bias-corrected in acid. The correction is as-of each day, never fitted on the day it scores."
         actions={
           <div className="flex items-center gap-3">
-            <LegendItem color="#ffb45c" label="Raw" />
-            <LegendItem color="#c8f45a" label="Calibrated" />
+            <LegendItem color="var(--chart-raw)" label="Raw" />
+            <LegendItem color="var(--chart-forecast)" label="Calibrated" />
           </div>
         }
         bodyClassName="px-2 pb-2 pt-1"
@@ -277,8 +277,8 @@ function AccuracyBody({ data, cutoff }: { data: AccuracyBundle; cutoff: string }
           subtitle="Each dot is an hour. Above the diagonal means the forecast was high; below means it was low."
           actions={
             <div className="flex items-center gap-3">
-              <LegendItem color="#ffb45c" label="High" />
-              <LegendItem color="#5fe3c0" label="Low" />
+              <LegendItem color="var(--chart-raw)" label="High" />
+              <LegendItem color="var(--chart-actual)" label="Low" />
             </div>
           }
           bodyClassName="px-2 pb-2 pt-1"
@@ -297,7 +297,7 @@ function AccuracyBody({ data, cutoff }: { data: AccuracyBundle; cutoff: string }
               <Link
                 key={row.date}
                 to={`/?date=${row.date}&cutoff=${cutoff}`}
-                className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-white/[0.02]"
+                className="group flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-paper/[0.03]"
               >
                 <span className="num w-6 text-[10px] text-faint">
                   {String(index + 1).padStart(2, "0")}
@@ -363,7 +363,7 @@ function AccuracyBody({ data, cutoff }: { data: AccuracyBundle; cutoff: string }
               {data.daily.map((row) => (
                 <tr
                   key={row.date}
-                  className="border-b border-edge/50 transition-colors last:border-0 hover:bg-white/[0.02]"
+                  className="border-b border-edge/50 transition-colors last:border-0 hover:bg-paper/[0.03]"
                 >
                   <td className="py-2 pl-5 pr-2 text-[11px] text-paper">
                     {dateShort(row.date)}

@@ -76,8 +76,8 @@ export function ForecastChart({
       >
         <defs>
           <linearGradient id="error-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffb45c" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#ffb45c" stopOpacity="0.02" />
+            <stop offset="0%" stopColor="var(--chart-raw)" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="var(--chart-raw)" stopOpacity="0.02" />
           </linearGradient>
         </defs>
 
@@ -88,14 +88,14 @@ export function ForecastChart({
               x2={PAD.left + innerW}
               y1={y(tick)}
               y2={y(tick)}
-              stroke="rgba(255,255,255,0.055)"
+              stroke="var(--chart-grid)"
               strokeDasharray={tick === 0 ? undefined : "2 5"}
             />
             <text
               x={PAD.left - 10}
               y={y(tick) + 3.5}
               textAnchor="end"
-              className="fill-[#6f7d75] font-mono text-[9.5px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9.5px]"
             >
               {(tick / 1000).toFixed(1)}
             </text>
@@ -106,7 +106,7 @@ export function ForecastChart({
           x={PAD.left - 10}
           y={PAD.top - 8}
           textAnchor="end"
-          className="fill-[#5f6d65] font-mono text-[8.5px] uppercase tracking-[0.14em]"
+          className="fill-[var(--chart-axis-dim)] font-mono text-[8.5px] uppercase tracking-[0.14em]"
         >
           GW
         </text>
@@ -118,13 +118,13 @@ export function ForecastChart({
               x2={x(index)}
               y1={PAD.top}
               y2={PAD.top + innerH}
-              stroke="rgba(255,255,255,0.035)"
+              stroke="var(--chart-grid)"
             />
             <text
               x={x(index)}
               y={height - 8}
               textAnchor="middle"
-              className="fill-[#6f7d75] font-mono text-[9.5px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9.5px]"
             >
               {hourLabel(data[index]?.start_time)}
             </text>
@@ -141,7 +141,7 @@ export function ForecastChart({
           <path
             d={pathFrom(raw, x, y)}
             className="chart-line"
-            stroke="#ffb45c"
+            stroke="var(--chart-raw)"
             strokeWidth={1.4}
             strokeDasharray="4 4"
             opacity={0.75}
@@ -151,13 +151,13 @@ export function ForecastChart({
         <path
           d={pathFrom(actual, x, y)}
           className="chart-line"
-          stroke="#5fe3c0"
+          stroke="var(--chart-actual)"
           strokeWidth={2.2}
         />
         <path
           d={pathFrom(forecast, x, y)}
           className="chart-line"
-          stroke="#c8f45a"
+          stroke="var(--chart-forecast)"
           strokeWidth={2.4}
         />
 
@@ -168,7 +168,7 @@ export function ForecastChart({
               x2={x(hover)}
               y1={PAD.top}
               y2={PAD.top + innerH}
-              stroke="rgba(238,242,233,0.28)"
+              stroke="var(--chart-crosshair)"
               strokeDasharray="3 3"
             />
             {isNum(hovered.raw_forecast_mw) && calibrated && (
@@ -176,8 +176,8 @@ export function ForecastChart({
                 cx={x(hover)}
                 cy={y(hovered.raw_forecast_mw)}
                 r={3.2}
-                fill="#0c1310"
-                stroke="#ffb45c"
+                fill="var(--chart-dot-bg)"
+                stroke="var(--chart-raw)"
                 strokeWidth={1.4}
               />
             )}
@@ -186,8 +186,8 @@ export function ForecastChart({
                 cx={x(hover)}
                 cy={y(hovered.forecast_mw)}
                 r={4}
-                fill="#0c1310"
-                stroke="#c8f45a"
+                fill="var(--chart-dot-bg)"
+                stroke="var(--chart-forecast)"
                 strokeWidth={2}
               />
             )}
@@ -196,8 +196,8 @@ export function ForecastChart({
                 cx={x(hover)}
                 cy={y(hovered.actual_mw)}
                 r={4}
-                fill="#0c1310"
-                stroke="#5fe3c0"
+                fill="var(--chart-dot-bg)"
+                stroke="var(--chart-actual)"
                 strokeWidth={2}
               />
             )}
@@ -231,19 +231,19 @@ export function ForecastChart({
           <div className="mt-2 space-y-1.5 text-[11px]">
             {calibrated && (
               <TooltipRow
-                color="#ffb45c"
+                color="var(--chart-raw)"
                 label="Raw WINDFOR"
                 value={`${Math.round(hovered.raw_forecast_mw ?? 0).toLocaleString("en-GB")} MW`}
                 dashed
               />
             )}
             <TooltipRow
-              color="#c8f45a"
+              color="var(--chart-forecast)"
               label={calibrated ? "Calibrated" : "Forecast"}
               value={`${Math.round(hovered.forecast_mw ?? 0).toLocaleString("en-GB")} MW`}
             />
             <TooltipRow
-              color="#5fe3c0"
+              color="var(--chart-actual)"
               label="Actual"
               value={`${Math.round(hovered.actual_mw ?? 0).toLocaleString("en-GB")} MW`}
             />

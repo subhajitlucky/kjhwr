@@ -241,9 +241,9 @@ export function OverviewPage() {
           subtitle="Hourly averages of half-hourly FUELHH wind. The shaded band is the forecast error; the raw series stays visible as a reference."
           actions={
             <div className="flex flex-wrap items-center gap-3">
-              <LegendItem color="#5fe3c0" label="Actual" />
-              <LegendItem color="#c8f45a" label={calibrated ? "Calibrated" : "Forecast"} />
-              {calibrated && <LegendItem color="#ffb45c" label="Raw" dashed />}
+              <LegendItem color="var(--chart-actual)" label="Actual" />
+              <LegendItem color="var(--chart-forecast)" label={calibrated ? "Calibrated" : "Forecast"} />
+              {calibrated && <LegendItem color="var(--chart-raw)" label="Raw" dashed />}
             </div>
           }
           bodyClassName="px-2 pb-2 pt-1"
@@ -342,10 +342,10 @@ export function OverviewPage() {
                 height={224}
               />
               <div className="flex flex-wrap items-center gap-3 border-t border-edge px-4 py-2.5">
-                <LegendItem color="#c8f45a" label="Used at cut-off" />
-                <LegendItem color="#8ab8ff" label="Earlier vintage" />
-                <LegendItem color="#ff7a66" label="Published too late" dashed />
-                <LegendItem color="#5fe3c0" label="Actual" />
+                <LegendItem color="var(--chart-forecast)" label="Used at cut-off" />
+                <LegendItem color="var(--chart-muted)" label="Earlier vintage" />
+                <LegendItem color="var(--chart-late)" label="Published too late" dashed />
+                <LegendItem color="var(--chart-actual)" label="Actual" />
                 <span className="ml-auto font-mono text-[9.5px] text-faint">
                   {revisionsState.data.vintage_count} vintages · {revisionsState.data.vintages.length} shown
                 </span>
@@ -491,7 +491,7 @@ function DecisionPanel({
           <div className="mt-auto pt-5">
             <Link
               to={`/revisions?date=${date}&cutoff=${cutoff}`}
-              className="inline-flex w-full items-center justify-between rounded-xl border border-edge bg-white/[0.02] px-3.5 py-2.5 text-[11px] text-muted transition-colors hover:border-acid/30 hover:text-acid"
+              className="inline-flex w-full items-center justify-between rounded-xl border border-edge bg-paper/[0.03] px-3.5 py-2.5 text-[11px] text-muted transition-colors hover:border-acid/30 hover:text-acid"
             >
               Audit every vintage
               <ArrowRight className="h-3.5 w-3.5" />
@@ -558,7 +558,7 @@ function HourlyLedger({
                   return (
                     <tr
                       key={point.start_time}
-                      className="border-b border-edge/50 transition-colors last:border-0 hover:bg-white/[0.02]"
+                      className="border-b border-edge/50 transition-colors last:border-0 hover:bg-paper/[0.03]"
                     >
                       <td className="num py-2 pl-5 pr-2 text-[11px] text-muted">
                         {hourLabel(point.start_time)}

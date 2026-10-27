@@ -34,7 +34,7 @@ const badgeTone: Record<Tone, string> = {
   ember: "border-ember/25 bg-ember/10 text-ember",
   coral: "border-coral/25 bg-coral/10 text-coral",
   sky: "border-sky/25 bg-sky/10 text-sky",
-  neutral: "border-edge2 bg-white/[0.03] text-muted",
+  neutral: "border-edge2 bg-paper/[0.04] text-muted",
 };
 
 export function Panel({
@@ -107,7 +107,7 @@ export function Kpi({
       <div className="flex items-center justify-between gap-3">
         <span className="eyebrow">{label}</span>
         {Icon && (
-          <span className={`rounded-md border border-edge2/80 bg-white/[0.02] p-1.5 ${toneText[tone]}`}>
+          <span className={`rounded-md border border-edge2/80 bg-paper/[0.03] p-1.5 ${toneText[tone]}`}>
             <Icon className="h-3.5 w-3.5" strokeWidth={1.7} />
           </span>
         )}

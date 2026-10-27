@@ -94,14 +94,14 @@ export function RevisionsChart({
               x2={PAD.left + innerW}
               y1={y(tick)}
               y2={y(tick)}
-              stroke="rgba(255,255,255,0.05)"
+              stroke="var(--chart-grid)"
               strokeDasharray="2 5"
             />
             <text
               x={PAD.left - 10}
               y={y(tick) + 3.5}
               textAnchor="end"
-              className="fill-[#6f7d75] font-mono text-[9.5px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9.5px]"
             >
               {(tick / 1000).toFixed(1)}
             </text>
@@ -111,7 +111,7 @@ export function RevisionsChart({
           x={PAD.left - 10}
           y={PAD.top - 6}
           textAnchor="end"
-          className="fill-[#5f6d65] font-mono text-[8.5px] uppercase tracking-[0.14em]"
+          className="fill-[var(--chart-axis-dim)] font-mono text-[8.5px] uppercase tracking-[0.14em]"
         >
           GW
         </text>
@@ -125,13 +125,13 @@ export function RevisionsChart({
                 x2={x(index)}
                 y1={PAD.top}
                 y2={PAD.top + innerH}
-                stroke="rgba(255,255,255,0.03)"
+                stroke="var(--chart-grid)"
               />
               <text
                 x={x(index)}
                 y={height - 8}
                 textAnchor="middle"
-                className="fill-[#6f7d75] font-mono text-[9.5px]"
+                className="fill-[var(--chart-axis)] font-mono text-[9.5px]"
               >
                 {hourLabel(slots[index])}
               </text>
@@ -149,7 +149,7 @@ export function RevisionsChart({
               key={vintage.publish_time}
               d={pathFrom(vintage.aligned, x, y)}
               className="chart-line"
-              stroke="#8ab8ff"
+              stroke="var(--chart-muted)"
               strokeWidth={1}
               opacity={0.24}
             />
@@ -162,7 +162,7 @@ export function RevisionsChart({
               key={vintage.publish_time}
               d={pathFrom(vintage.aligned, x, y)}
               className="chart-line"
-              stroke="#ff7a66"
+              stroke="var(--chart-late)"
               strokeWidth={1.15}
               strokeDasharray="3 4"
               opacity={0.5}
@@ -172,7 +172,7 @@ export function RevisionsChart({
         <path
           d={pathFrom(actual.map((point) => point.actual_mw), x, y)}
           className="chart-line"
-          stroke="#5fe3c0"
+          stroke="var(--chart-actual)"
           strokeWidth={2}
           opacity={0.9}
         />
@@ -181,7 +181,7 @@ export function RevisionsChart({
           <path
             d={pathFrom(selected.aligned, x, y)}
             className="chart-line"
-            stroke="#c8f45a"
+            stroke="var(--chart-forecast)"
             strokeWidth={2.6}
           />
         )}
@@ -193,7 +193,7 @@ export function RevisionsChart({
               x2={x(hover)}
               y1={PAD.top}
               y2={PAD.top + innerH}
-              stroke="rgba(238,242,233,0.25)"
+              stroke="var(--chart-crosshair)"
               strokeDasharray="3 3"
             />
             {hoveredActual && isNum(hoveredActual.actual_mw) && (
@@ -201,8 +201,8 @@ export function RevisionsChart({
                 cx={x(hover)}
                 cy={y(hoveredActual.actual_mw)}
                 r={3.6}
-                fill="#0c1310"
-                stroke="#5fe3c0"
+                fill="var(--chart-dot-bg)"
+                stroke="var(--chart-actual)"
                 strokeWidth={1.8}
               />
             )}
@@ -211,8 +211,8 @@ export function RevisionsChart({
                 cx={x(hover)}
                 cy={y(selected.aligned[hover] as number)}
                 r={3.8}
-                fill="#0c1310"
-                stroke="#c8f45a"
+                fill="var(--chart-dot-bg)"
+                stroke="var(--chart-forecast)"
                 strokeWidth={1.8}
               />
             )}
@@ -243,7 +243,7 @@ export function RevisionsChart({
           <div className="mt-2 space-y-1.5 text-[11px]">
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1.5 text-muted">
-                <span className="inline-block h-0 w-3.5 border-t-2 border-[#5fe3c0]" />
+                <span className="inline-block h-0 w-3.5 border-t-2 border-[var(--chart-actual)]" />
                 Actual
               </span>
               <span className="num text-[10.5px] text-paper">
@@ -254,7 +254,7 @@ export function RevisionsChart({
             </div>
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-1.5 text-muted">
-                <span className="inline-block h-0 w-3.5 border-t-2 border-[#c8f45a]" />
+                <span className="inline-block h-0 w-3.5 border-t-2 border-[var(--chart-forecast)]" />
                 Used vintage
               </span>
               <span className="num text-[10.5px] text-paper">

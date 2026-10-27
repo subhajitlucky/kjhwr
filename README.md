@@ -78,6 +78,13 @@ dispersion remains — which is exactly what a procurement buffer is for.
 |---|---|
 | ![Accuracy](docs/screenshots/accuracy.png) | ![Revisions](docs/screenshots/revisions.png) |
 
+| Light theme |
+|---|
+| ![Windcast light theme](docs/screenshots/overview-light.png) |
+
+The interface ships with a dark control-room theme and a warm light theme. The
+toggle is in the sidebar (or the mobile header) and the choice is remembered.
+
 ## Architecture
 
 ```mermaid
@@ -115,13 +122,13 @@ windcast/
 │   ├── src/
 │   │   ├── components/charts/     # forecast, revisions, bars, histogram, scatter
 │   │   ├── pages/                 # Overview, Accuracy, Revisions, Method
-│   │   ├── context/AppState.tsx   # URL-driven date/cut-off/calibration state
+│   │   ├── context/               # URL-driven state + theme provider
 │   │   └── lib/                   # API client, types, formatting, hooks
 │   └── package.json
 ├── data/windcast.db               # committed January 2026 snapshot
 ├── docs/
 │   ├── video-script.md            # 10-minute demo script
-│   ├── submission-checklist.md
+│   ├── launch-checklist.md        # video, repo and QA hand-off
 │   └── screenshots/
 ├── Dockerfile                     # multi-stage: React build → Python runtime
 ├── docker-compose.yml
@@ -237,18 +244,10 @@ OpenAPI docs are available at `/docs` when running the API.
 AI tools were used for implementation support, refactoring and design
 exploration. The data-selection rule, metric definitions, caveats and final code
 were reviewed against the Elexon data and are covered by the test suite. This
-disclosure is required by the assignment and is repeated on the Method page.
+disclosure is repeated on the Method page.
 
-## Assignment checklist
+## Status
 
-- [x] React frontend
-- [x] Python backend
-- [x] Docker
-- [x] Deployed (Vercel)
-- [x] README with file map, run instructions and app link
-- [ ] Unlisted YouTube walkthrough — script in [`docs/video-script.md`](docs/video-script.md)
-- [x] Public anonymous GitHub repository — https://github.com/subhajitlucky/kjhwr
-- [ ] Submission form
-
-See [`docs/submission-checklist.md`](docs/submission-checklist.md) for the
-remaining hand-off steps.
+Pilot delivered and deployed. The live app, public repository, Docker image and
+16-test suite are complete. See [`docs/launch-checklist.md`](docs/launch-checklist.md)
+for the demo-video and production-QA steps.

@@ -27,6 +27,54 @@
   --chart-raw: #ffb45c;
   --chart-late: #ff7a66;
   --chart-muted: #8ab8ff;
+  --chart-grid: rgba(255, 255, 255, 0.05);
+  --chart-grid-strong: rgba(255, 255, 255, 0.12);
+  --chart-axis: #6f7d75;
+  --chart-axis-dim: #5f6d65;
+  --chart-axis-label: #8d9b92;
+  --chart-crosshair: rgba(238, 242, 233, 0.28);
+  --chart-reference: rgba(238, 242, 233, 0.35);
+  --chart-dot-bg: #0c1310;
+  --chart-dot-stroke: rgba(7, 11, 10, 0.7);
+  --chart-tooltip-bg: rgba(10, 16, 13, 0.94);
+  --chart-tooltip-border: #2a3a32;
+  --sidebar-bg: rgba(8, 13, 11, 0.95);
+}
+
+html.light {
+  color-scheme: light;
+
+  --color-ink: #f3efe5;
+  --color-panel: #fbf9f3;
+  --color-panel2: #f0ebdf;
+  --color-edge: #dcd5c5;
+  --color-edge2: #c7bfae;
+  --color-paper: #121813;
+  --color-muted: #5b685f;
+  --color-faint: #6b7a70;
+  --color-acid: #4f7400;
+  --color-mint: #0d7560;
+  --color-ember: #9a5600;
+  --color-coral: #bb3b2b;
+  --color-sky: #2d5c99;
+
+  --chart-actual: #0d7560;
+  --chart-forecast: #4f7400;
+  --chart-raw: #9a5600;
+  --chart-late: #bb3b2b;
+  --chart-muted: #2d5c99;
+  --chart-grid: rgba(18, 24, 19, 0.075);
+  --chart-grid-strong: rgba(18, 24, 19, 0.16);
+  --chart-axis: #647268;
+  --chart-axis-dim: #7c8980;
+  --chart-axis-label: #5b685f;
+  --chart-crosshair: rgba(18, 24, 19, 0.3);
+  --chart-reference: rgba(18, 24, 19, 0.35);
+  --chart-dot-bg: #fbf9f3;
+  --chart-dot-stroke: rgba(251, 249, 243, 0.9);
+  --chart-tooltip-bg: rgba(251, 249, 243, 0.97);
+  --chart-tooltip-border: #c7bfae;
+  --sidebar-bg: rgba(248, 245, 236, 0.96);
 }
 
 @layer base {
@@ -198,8 +246,82 @@
   stroke-linejoin: round;
 }
 
+.chart-text {
+  fill: var(--chart-axis);
+}
+
+.chart-text-dim {
+  fill: var(--chart-axis-dim);
+}
+
+.chart-text-label {
+  fill: var(--chart-axis-label);
+}
+
+.chart-grid {
+  stroke: var(--chart-grid);
+}
+
+.chart-grid-strong {
+  stroke: var(--chart-grid-strong);
+}
+
+.chart-crosshair {
+  stroke: var(--chart-crosshair);
+}
+
+.chart-reference {
+  stroke: var(--chart-reference);
+}
+
 .chart-focus {
   transition: opacity 0.2s ease;
+}
+
+html.light body {
+  background:
+    radial-gradient(1100px 620px at 72% -12%, rgba(79, 116, 0, 0.06), transparent 62%),
+    radial-gradient(900px 540px at 6% 8%, rgba(13, 117, 96, 0.045), transparent 60%),
+    var(--color-ink);
+}
+
+html.light .panel {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 24px 60px -42px rgba(31, 40, 33, 0.22);
+}
+
+html.light .grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(18, 24, 19, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 24, 19, 0.045) 1px, transparent 1px);
+}
+
+html.light .glass {
+  background: rgba(243, 239, 229, 0.8);
+}
+
+html.light .tooltip-card {
+  border-color: var(--chart-tooltip-border);
+  background: var(--chart-tooltip-bg);
+  box-shadow: 0 18px 48px -20px rgba(31, 40, 33, 0.28);
+}
+
+html.light .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(18, 24, 19, 0.04) 25%,
+    rgba(18, 24, 19, 0.08) 37%,
+    rgba(18, 24, 19, 0.04) 63%
+  );
+  background-size: 200% 100%;
+}
+
+html.light input[type="range"].range::-webkit-slider-thumb {
+  border-color: var(--color-panel);
+}
+
+html.light input[type="range"].range::-moz-range-thumb {
+  border-color: var(--color-panel);
 }
 
 input[type="range"].range {

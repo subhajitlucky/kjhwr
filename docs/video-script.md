@@ -214,7 +214,7 @@ and the API docs at `/docs` if available.
 **Say:**
 
 > "The repo has the Docker setup, the Vercel config, the tests and the README. The
-> live link is in the submission. The one-line summary: Windcast shows the
+> live link is in the video description. The one-line summary: Windcast shows the
 > forecast you had, and the error you should plan for. Thank you."
 
 ---

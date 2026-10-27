@@ -58,14 +58,14 @@ export function DailyErrorBars({
               x2={PAD.left + innerW}
               y1={y(tick)}
               y2={y(tick)}
-              stroke="rgba(255,255,255,0.05)"
+              stroke="var(--chart-grid)"
               strokeDasharray="2 5"
             />
             <text
               x={PAD.left - 8}
               y={y(tick) + 3.5}
               textAnchor="end"
-              className="fill-[#6f7d75] font-mono text-[9px]"
+              className="fill-[var(--chart-axis)] font-mono text-[9px]"
             >
               {(tick / 1000).toFixed(1)}
             </text>
@@ -75,7 +75,7 @@ export function DailyErrorBars({
           x={PAD.left - 8}
           y={PAD.top - 5}
           textAnchor="end"
-          className="fill-[#5f6d65] font-mono text-[8px] uppercase tracking-[0.14em]"
+          className="fill-[var(--chart-axis-dim)] font-mono text-[8px] uppercase tracking-[0.14em]"
         >
           GW
         </text>
@@ -95,7 +95,7 @@ export function DailyErrorBars({
                 width={barWidth}
                 height={rawHeight}
                 rx={1.5}
-                fill="#ffb45c"
+                fill="var(--chart-raw)"
                 opacity={hover === null || hover === index ? 0.8 : 0.32}
               />
               <rect
@@ -104,7 +104,7 @@ export function DailyErrorBars({
                 width={barWidth}
                 height={calibratedHeight}
                 rx={1.5}
-                fill="#c8f45a"
+                fill="var(--chart-forecast)"
                 opacity={hover === null || hover === index ? 0.9 : 0.32}
               />
               <rect
@@ -120,7 +120,7 @@ export function DailyErrorBars({
                   x={center}
                   y={height - 8}
                   textAnchor="middle"
-                  className="fill-[#6f7d75] font-mono text-[9px]"
+                  className="fill-[var(--chart-axis)] font-mono text-[9px]"
                 >
                   {dateShort(row.date).replace(" ", "\u00a0")}
                 </text>
