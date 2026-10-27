@@ -58,8 +58,8 @@ Across 744 matched hours in January 2026:
 | Metric | Raw WINDFOR | Trailing bias-corrected |
 |---|---:|---:|
 | MAE | **2,142 MW** | **1,669 MW** (−22.1%) |
-| Bias | **+1,852 MW** | ≈ 0 |
-| P90 absolute error | **4,300 MW** | ~3,600 MW |
+| Bias | **+1,852 MW** | **+76 MW** |
+| P90 absolute error | **4,300 MW** | **3,636 MW** |
 
 The raw WINDFOR series runs consistently high against FUELHH transmission wind.
 The app reports the raw comparison and offers a transparent, as-of calibration:
