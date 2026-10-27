@@ -3,7 +3,7 @@
 **Day-ahead wind forecast intelligence for a GB energy utility.**
 Vintage-aware. Error-quantified. No look-ahead.
 
-**[Live app →](https://windcast-pilot.vercel.app)** · **[Method →](https://windcast-pilot.vercel.app/method)**
+**[Live app →](https://windcast-pilot.vercel.app)** · **[Method →](https://windcast-pilot.vercel.app/method)** · **[GitHub →](https://github.com/subhajitlucky/kjhwr)**
 
 ![Windcast overview](docs/screenshots/overview.png)
 
@@ -247,7 +247,7 @@ disclosure is required by the assignment and is repeated on the Method page.
 - [x] Deployed (Vercel)
 - [x] README with file map, run instructions and app link
 - [ ] Unlisted YouTube walkthrough — script in [`docs/video-script.md`](docs/video-script.md)
-- [ ] Public anonymous GitHub repository
+- [x] Public anonymous GitHub repository — https://github.com/subhajitlucky/kjhwr
 - [ ] Submission form
 
 See [`docs/submission-checklist.md`](docs/submission-checklist.md) for the

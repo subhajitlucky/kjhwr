@@ -8,7 +8,7 @@
 - [x] Deployed app: https://windcast-pilot.vercel.app
 - [x] README with file map, run instructions and app link
 - [ ] Unlisted YouTube walkthrough
-- [ ] Public anonymous GitHub repository
+- [x] Public anonymous GitHub repository: https://github.com/subhajitlucky/kjhwr
 - [ ] Submission form
 
 Submission form: **https://forms.cloud.microsoft/r/Ljmf1aWESK**
